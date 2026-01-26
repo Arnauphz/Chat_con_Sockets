@@ -52,3 +52,22 @@ public class Servidor {
         salas.put("jiuston", new Sala("jiuston", aforoDefecto));
         System.out.println("Salas creadas: recepcion y jiuston");
     }
+     // Métodos estáticos para ManejadorCliente
+    public static boolean registrarCliente(String nombre, ManejadorCliente manejador) {
+        if (clientes.containsKey(nombre)) {
+            return false;
+        }
+        clientes.put(nombre, manejador);
+        System.out.println("Cliente registrado: " + nombre);
+        return true;
+    }
+
+    public static void desconectarCliente(String nombre) {
+        clientes.remove(nombre);
+        System.out.println("Cliente desconectado: " + nombre);
+    }
+
+    public static Map<String, Sala> getSalas() { return salas; }
+    public static Map<String, ManejadorCliente> getClientes() { return clientes; }
+    public static String getPasswordAdmin() { return passwordAdmin; }
+    public static int getAforoDefecto() { return aforoDefecto; }
