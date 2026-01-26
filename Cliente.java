@@ -36,3 +36,36 @@ public class Cliente {
             System.out.println("No se pudo conectar después de " + intentos + " intentos");
             return;
         }
+        try {
+            BufferedReader entradaUsuario = new BufferedReader(new InputStreamReader(System.in));
+            PrintWriter salidaServidor = new PrintWriter(socket.getOutputStream(), true);
+            BufferedReader entradaServidor = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+
+            // Hilo para leer mensajes del servidor
+            Thread lectorServidor = new Thread(() -> {
+                String mensaje;
+                try {
+                    while ((mensaje = entradaServidor.readLine()) != null) {
+                        System.out.println(mensaje);
+                    }
+                } catch (IOException e) {
+                    System.out.println("Conexión cerrada por el servidor.");
+                }
+            });
+            lectorServidor.start();
+
+            // Enviar comandos al servidor
+            String linea;
+            while ((linea = entradaUsuario.readLine()) != null) {
+                salidaServidor.println(linea);
+                if (linea.equalsIgnoreCase("/abandona")) {
+                    break;
+                }
+            }
+
+            socket.close();
+        } catch (IOException e) {
+            System.out.println("Error en la comunicación: " + e.getMessage());
+        }
+    }
+}
