@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Cliente {
     private static String host = "192.168.1.38";
-    private static int puerto = 12345;
+    private static int puerto = 28350;
     private static int intentos = 5;
     private static int espera = 10;
 
