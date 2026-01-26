@@ -76,3 +76,37 @@ public class ManejadorCliente implements Runnable {
     private void procesarComando(String comando) {
         String[] partes = comando.split(" ", 2);
         String cmd = partes[0];
+        
+        switch (cmd) {
+            case "/ayuda":
+                mostrarAyuda();
+                break;
+            case "/quien_soy":
+                salida.println("Nombre: " + nombre + ", Tipo: " + (esAdmin ? "Admin" : "Cliente") + 
+                             ", Sala: " + salaActual);
+                break;
+            case "/salas":
+                listarSalas();
+                break;
+            case "/usuarios":
+                if (partes.length > 1) {
+                    listarUsuarios(partes[1]);
+                } else {
+                    salida.println("Uso: /usuarios <sala>");
+                }
+                break;
+            case "/unirse":
+                if (!esAdmin && partes.length > 1) {
+                    cambiarSala(partes[1]);
+                } else {
+                    salida.println("Los admins no pueden cambiar de sala");
+                }
+                break;
+            case "/abandona":
+                salida.println("¡Hasta luego " + nombre + "!");
+                desconectar();
+                break;
+            default:
+                salida.println("Comando desconocido. Usa /ayuda");
+        }
+    }
