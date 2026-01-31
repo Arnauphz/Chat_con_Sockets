@@ -3,12 +3,14 @@ import java.net.*;
 import java.util.*;
 
 public class Cliente {
+
     private static String host = "192.168.1.38";
-    private static int puerto = 28350;
+    private static int puerto = 28350;  
     private static int intentos = 5;
     private static int espera = 10;
 
     public static void main(String[] args) {
+
         Socket socket = null;
         int intento = 0;
 
@@ -17,7 +19,7 @@ public class Cliente {
             try {
                 System.out.println("Conectando... (intento " + (intento + 1) + ")");
                 socket = new Socket(host, puerto);
-                System.out.println("¡Conectado!");
+                System.out.println("Conectado!");
                 break;
             } catch (IOException e) {
                 intento++;
@@ -33,9 +35,10 @@ public class Cliente {
         }
 
         if (socket == null) {
-            System.out.println("No se pudo conectar después de " + intentos + " intentos");
+            System.out.println("No se pudo conectar");
             return;
         }
+
         try {
             BufferedReader entradaUsuario = new BufferedReader(new InputStreamReader(System.in));
             PrintWriter salidaServidor = new PrintWriter(socket.getOutputStream(), true);
@@ -52,20 +55,21 @@ public class Cliente {
                     System.out.println("Conexión cerrada por el servidor.");
                 }
             });
+
             lectorServidor.start();
 
-            // Enviar comandos al servidor
-            String linea;
-            while ((linea = entradaUsuario.readLine()) != null) {
-                salidaServidor.println(linea);
-                if (linea.equalsIgnoreCase("/abandona")) {
+            // Enviar mensajes al servidor
+            String mensajeUsuario;
+            while ((mensajeUsuario = entradaUsuario.readLine()) != null) {
+                salidaServidor.println(mensajeUsuario);
+                if (mensajeUsuario.equalsIgnoreCase("/abandona")) {
                     break;
                 }
             }
 
             socket.close();
         } catch (IOException e) {
-            System.out.println("Error en la comunicación: " + e.getMessage());
+            System.out.println("Error en la comunicación con el servidor.");
         }
     }
 }
