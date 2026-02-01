@@ -7,19 +7,19 @@
 ## Viernes 
 
 ### Análisis inicial
-- ✅ Lectura detallada del enunciado del PDF
-- ✅ Análisis de requisitos funcionales:
+- Lectura detallada del enunciado del PDF
+- Análisis de requisitos funcionales:
   - Sistema de salas (recepcion/jiuston)
   - Comandos diferenciados para cliente básico y administrador
   - Sistema de aforo configurable
   - Autenticación con contraseña para admins
   
 ### Implementación Cliente.java (Primera parte)
-- ✅ Comencé por el archivo más simple: `Cliente.java`
-- ✅ Implementada conexión básica mediante Socket:
+- Comencé por el archivo más simple: `Cliente.java`
+- Implementada conexión básica mediante Socket:
   - IP: 192.168.1.38
   - Puerto: 28350 (cambiado del inicial 12345)
-- ✅ Sistema de reintentos automáticos:
+- Sistema de reintentos automáticos:
   - Máximo 5 intentos
   - Espera de 10 segundos entre intentos
   - Implementado con bucle `while` y `Thread.sleep()`
@@ -141,7 +141,7 @@
   - `registrarCliente()`
   - `desconectarCliente()`
 
-#### ⚠️ Problema 2: Comandos avanzados pendientes
+#### Problema 2: Comandos avanzados pendientes
 **Pendiente de implementar**:
 - `/eliminaforzado <sala>` - Eliminar sala moviendo usuarios a recepcion
 - `/expulsa <usuario> [motivo]` - Expulsar usuarios
@@ -152,7 +152,7 @@
 
 ---
 
-## 📅 Lunes - Correcciones finales
+## Lunes - Correcciones finales
 
 ### Bug crítico: Contraseña de admin no funciona
 
@@ -190,7 +190,7 @@ if (pass != null) pass = pass.trim();
 
 ---
 
-## Miércoles (Día 6) - Testing y refinamiento
+## Miércoles - Testing y refinamiento
 
 ### Pruebas de funcionalidad básica
 - **Pruebas de conexión**:
@@ -347,19 +347,19 @@ if (partes.length < 2) {
   - Aprendizajes clave identificados
   - Estadísticas del proyecto
 
-- ✅ **Código comentado**:
+- **Código comentado**:
   - Métodos críticos con JavaDoc
   - Explicaciones en secciones complejas
   - Validaciones documentadas
 
 ### Ajustes finales de código
-- ✅ Eliminados `System.out.println()` de debug
-- ✅ Mensajes de usuario mejorados (más claros)
-- ✅ Validación de entrada más robusta
-- ✅ Manejo de excepciones refinado
-- ✅ Código formateado y limpio
+- Eliminados `System.out.println()` de debug
+- Mensajes de usuario mejorados (más claros)
+- Validación de entrada más robusta
+- Manejo de excepciones refinado
+- Código formateado y limpio
 
 ### Testing final exhaustivo
-- ✅ Ejecutado plan de pruebas completo
-- ✅ Todas las pruebas pasadas satisfactoriamente
-- ✅ No quedan bugs conocidos
+- Ejecutado plan de pruebas completo
+- Todas las pruebas pasadas satisfactoriamente
+- No quedan bugs conocidos
