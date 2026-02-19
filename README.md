@@ -4,7 +4,7 @@
 
 ---
 
-## Viernes 
+## Dia 1 
 
 ### Análisis inicial
 - Lectura detallada del enunciado del PDF
@@ -28,7 +28,7 @@
 
 ---
 
-## Sábado
+## Dia 2
 
 ### Cliente.java (Completado)
 - Implementado **hilo lector** para recibir mensajes del servidor:
@@ -87,7 +87,7 @@
 
 ---
 
-## Domingo
+## Dia 3
 
 ### Sistema de autenticación
 - Método `autenticar()` en ManejadorCliente:
@@ -152,7 +152,7 @@
 
 ---
 
-## Lunes - Correcciones finales
+## Dia 4 - Correcciones finales
 
 ### Bug crítico: Contraseña de admin no funciona
 
@@ -190,7 +190,7 @@ if (pass != null) pass = pass.trim();
 
 ---
 
-## Miércoles - Testing y refinamiento
+## Dia 5 - Testing y refinamiento
 
 ### Pruebas de funcionalidad básica
 - **Pruebas de conexión**:
@@ -259,7 +259,7 @@ if (partes.length < 2) {
 
 ---
 
-## Jueves - Testing avanzado y documentación
+## Dia 6 - Testing avanzado y documentación
 
 ### Pruebas de concurrencia
 - **Múltiples usuarios simultáneos**:
